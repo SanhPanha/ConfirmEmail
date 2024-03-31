@@ -5,14 +5,16 @@ import Loading from "./loading";
 import Error from "./error";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import { inter, suwannaphum, localCustomFont } from "./fonts";
+import { Metadata } from "next";
 
-export const MetaData = {
+export const metadata: Metadata = {
   title: "ISTAD E-Commerce Web",
   description: "We provide the best quality products for you.",
-	openGraph: {
-		title: "ISTAD E-Commerce Web",
-		description : "We provide the best quality products for you.",
-	}
+  openGraph: {
+    title: "ISTAD E-Commerce Web",
+    description: "We provide the best quality products for you.",
+    images: 
+  }
 };
 
 export default function RootLayout({
