@@ -2,14 +2,14 @@ import CardComponent from "@/components/card/CardComponent";
 
 type PropsParams = {
   params: {
-    id: string;
+    id: number;
   };
   searchParams: any;
 };
 
 const ENDPOINT = "https://fakestoreapi.com/products/";
 
-export const getData = async (id: string) => {
+const getData = async (id: number) => {
   const res = await fetch(`${ENDPOINT}${id}`); // {next: {revalidate: 10}} This is for caching
   const data = await res.json();
   console.log(data);

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ISTAD E-Commerce Web",
     description: "We provide the best quality products for you.",
-    images: 
+    images: 'https://www.khmertimeskh.com/wp-content/uploads/2022/07/dreamstime_m_20795008118952.jpg'
   }
 };
 
