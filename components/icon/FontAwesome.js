@@ -11,9 +11,10 @@ export const ConfirmIcon = ({ color = "#333", classname = "w-16 h-1" }) => {
   );
 };
 
-export const MenuIcon = ({ color = "#333", classname = "w-16 h-1" }) => {
+export const MenuIcon = ({ color = "#333", classname = "w-16 h-1" , onClick=()=>{}}) => {
   return (
     <svg
+      onClick={onClick}
       className={classname}
       fill={color}
       xmlns="http://www.w3.org/2000/svg"

@@ -10,23 +10,10 @@ export const MenuList = [
         active: true,
     },
     {
-        name: "Services",
-        path: "/service",
+        name: "Policy",
+        path: "/policy",
         active: false,
     },
-    {
-        name: "Contact",
-        path: "/contact",
-        active: false,
-    },
-    {
-        name: "Price",
-        path: "/price",
-        active: false,
-    },
-    {
-        name: "Enroll",
-        path: "/enroll",
-        active: false,
-    }
+   
+  
 ]

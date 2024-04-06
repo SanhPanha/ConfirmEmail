@@ -1,29 +1,39 @@
 "use client";
+import CardProduct from "@/components/card/CardProduct";
+import API_URL, { ProductType } from "@/lib/definitions";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-// change this to null to see the error page
-// const session = null
-const session = "some session data";
+export default function Service() {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const router = useRouter();
 
-export default function Home() {
-	const router = useRouter();
+  useEffect(() => {
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((data) => setProducts(data.results));
+    console.log(products);
+  }, []);
 
-	// error.tsx will be rendered if session is null
-	if (!session) {
-		throw new Error("Auth is required to access this resource");
-	}
+  return (
+    <div className="flex flex-col items-center justify-center my-10">
+      <h1 className="text-4xl font-bold text-center text-gray-900 my-4">
+        CSTAD E-COMMERCE
+      </h1>
 
-	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<div>
-				<h1 className="text-6xl font-medium">Home Page</h1>
-				<button
-					onClick={() => router.push("/enroll")}
-					className="p-4 bg-blue-300 rounded-xl text-2xl font-medium mt-4 text-[#333]"
-				>
-					Enroll Now
-				</button>
-			</div>
-		</main>
-	);
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {products.map((product: any, index) => (
+          <CardProduct
+            onClick={() => router.push(`/service/${product.id}`)}
+            key={index}
+            name={product.name}
+            image={product.image}
+            price={product.price}
+            category={product.category}
+            seller={product.seller}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
